@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:25.0.6 AS builder
+FROM quay.io/keycloak/keycloak:26.4.0 AS builder
 
 ARG KC_HEALTH_ENABLED KC_METRICS_ENABLED KC_FEATURES KC_DB KC_HTTP_ENABLED PROXY_ADDRESS_FORWARDING QUARKUS_TRANSACTION_MANAGER_ENABLE_RECOVERY KC_HOSTNAME KC_LOG_LEVEL KC_DB_POOL_MIN_SIZE
 
@@ -8,7 +8,7 @@ COPY /theme/keywind /opt/keycloak/themes/keywind
 
 RUN /opt/keycloak/bin/kc.sh build
 
-FROM quay.io/keycloak/keycloak:latest
+FROM quay.io/keycloak/keycloak:26.4.0
 
 COPY java.config /etc/crypto-policies/back-ends/java.config
 
